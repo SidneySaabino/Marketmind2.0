@@ -1,0 +1,106 @@
+/* ============================================================
+   navbar.css
+   Contém:
+   1) navbar fixa em todas as páginas (sticky)
+   2) menu do usuário (dropdown)
+   A base visual da navbar (.perfil-navbar, .perfil-menu, .perfil-actions,
+   .user-button, .new-report-button) está no perfil.css.
+============================================================ */
+
+/* ── 1) NAVBAR FIXA ──
+   `position: sticky` mantém a navbar no topo ao rolar, sem tirar ela
+   do fluxo: nenhuma página precisa de padding de compensação. */
+.perfil-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  /* sombra leve para separar do conteúdo ao rolar */
+  box-shadow: 0 1px 0 #e9edf2, 0 6px 14px -10px rgba(16, 24, 40, 0.16);
+}
+
+/* ── 2) MENU DO USUÁRIO ── */
+.navbar-user {
+  position: relative;
+}
+
+.navbar-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+
+  background: #ffffff;
+  border: 1px solid #ececef;
+  border-radius: 10px;
+
+  box-shadow: 0 8px 28px rgba(16, 24, 40, 0.12);
+
+  min-width: 200px;
+  padding: 6px;
+
+  /* acima da navbar sticky (z-index: 1000) para não ser cortado */
+  z-index: 1100;
+}
+
+.navbar-dropdown-item {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 12px;
+
+  background: none;
+  border: none;
+  border-radius: 7px;
+
+  text-align: left;
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #3a3d44;
+
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.navbar-dropdown-item svg {
+  color: #a5abb4;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.navbar-dropdown-item:hover {
+  background: #f4f4f6;
+}
+
+.navbar-dropdown-item:hover svg {
+  color: #3a3d44;
+}
+
+.navbar-dropdown-item.sair {
+  color: #d64545;
+}
+
+.navbar-dropdown-item.sair svg {
+  color: #e08a8a;
+}
+
+.navbar-dropdown-item.sair:hover {
+  background: #fdeceb;
+}
+
+.navbar-dropdown-item.sair:hover svg {
+  color: #d64545;
+}
+
+.perfil-menu a {
+  cursor: pointer;
+}
+
+.perfil-menu a.ativo {
+  color: #f47421;
+  font-weight: 600;
+}
